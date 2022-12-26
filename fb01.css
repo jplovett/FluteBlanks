@@ -1,0 +1,13 @@
+body 		{background-color: black;}
+h1 			{color:yellow; font-size:20pt; text-align: center;}
+h2 			{color:Aqua; font-size:20pt; text-align: center;}
+h3 			{color:yellow; font-size:14pt; text-align: center;}
+h4 			{color:Aqua; font-size:14pt; text-align: center;}
+h5 			{color:yellow; font-size:12pt; text-align: center;}
+h6 			{color:Aqua; font-size:12pt; text-align: center;}
+hr 			{color:yellow;}
+p			{color:yellow; font-size:11pt; margin-left: 15px;}
+a:link		{color: Aqua;}
+a:visited  	{color: Lime;}
+a:hover    	{color:red;}
+a:active   	{color:orange;}
