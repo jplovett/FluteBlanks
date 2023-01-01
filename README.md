@@ -1,2 +1,2 @@
 # FluteBlanks
-This repo is George Adkin's site FluteBlanks.com.
+This repository is for George Adkin's site FluteBlanks.com.
