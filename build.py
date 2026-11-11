@@ -33,6 +33,7 @@ def page(path, title, desc, body, extra_js=""):
 <link rel="icon" href="/img/kokopelli-mark.png">
 {FONTS}
 <link rel="stylesheet" href="/site.css">
+<script>try{{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,6 +44,7 @@ def page(path, title, desc, body, extra_js=""):
       <span><span class="brand-name">Fluteblanks</span><span class="brand-by">by George Atkinson, Stone Mountain, GA</span></span>
     </a>
     <a class="head-call" href="{TEL}">Call {PHONE}</a>
+    <button class="theme-toggle" type="button" aria-pressed="false">Dark theme</button>
     <nav class="site-nav" aria-label="Main"><ul>{nav}</ul></nav>
   </div>
 </header>
@@ -61,6 +63,16 @@ def page(path, title, desc, body, extra_js=""):
     <nav aria-label="Footer"><ul>{foot_nav}</ul></nav>
   </div>
 </footer>
+<script>
+(function(){{
+  var b=document.querySelector('.theme-toggle'), r=document.documentElement;
+  function isDark(){{ return r.dataset.theme ? r.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches; }}
+  function sync(){{ var d=isDark(); b.textContent=d?'Light theme':'Dark theme'; b.setAttribute('aria-pressed', String(d)); }}
+  b.addEventListener('click', function(){{ var next=isDark()?'light':'dark'; r.dataset.theme=next; try{{localStorage.setItem('theme',next)}}catch(e){{}} sync(); }});
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', sync);
+  sync();
+}})();
+</script>
 {extra_js}
 </body>
 </html>

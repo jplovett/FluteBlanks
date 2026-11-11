@@ -11,6 +11,7 @@
 <link rel="icon" href="/img/kokopelli-mark.png">
 <link rel="preload" href="/fonts/big-shoulders-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -21,6 +22,7 @@
       <span><span class="brand-name">Fluteblanks</span><span class="brand-by">by George Atkinson, Stone Mountain, GA</span></span>
     </a>
     <a class="head-call" href="tel:+17709392603">Call 770-939-2603</a>
+    <button class="theme-toggle" type="button" aria-pressed="false">Dark theme</button>
     <nav class="site-nav" aria-label="Main"><ul><li><a href="/">Home</a></li><li><a href="/blanks">Flute blanks</a></li><li><a href="/prices">Wood prices</a></li><li><a href="/totems">Totems & fetishes</a></li><li><a href="/shipping">Shipping & ordering</a></li><li><a href="/about" aria-current="page">About</a></li><li><a href="/contact">Contact</a></li></ul></nav>
   </div>
 </header>
@@ -68,6 +70,16 @@ black walnut and eastern red cedar) about as cheaply as you can do it yourself.<
     <nav aria-label="Footer"><ul><li><a href="/">Home</a></li><li><a href="/blanks">Flute blanks</a></li><li><a href="/prices">Wood prices</a></li><li><a href="/totems">Totems & fetishes</a></li><li><a href="/shipping">Shipping & ordering</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></nav>
   </div>
 </footer>
+<script>
+(function(){
+  var b=document.querySelector('.theme-toggle'), r=document.documentElement;
+  function isDark(){ return r.dataset.theme ? r.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
+  function sync(){ var d=isDark(); b.textContent=d?'Light theme':'Dark theme'; b.setAttribute('aria-pressed', String(d)); }
+  b.addEventListener('click', function(){ var next=isDark()?'light':'dark'; r.dataset.theme=next; try{localStorage.setItem('theme',next)}catch(e){} sync(); });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', sync);
+  sync();
+})();
+</script>
 
 </body>
 </html>
