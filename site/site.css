@@ -197,12 +197,12 @@ dialog.viewer::backdrop { background: var(--backdrop); }
   --panel: #2A221E;
   --ink: #ECE5DC;
   --pencil: #B4AAA0;
-  --purpleheart: #D9A6CD;
+  --purpleheart: #FFFF00;   /* the yellow from the original fluteblanks.com */
   --rule: #4B3F38;
-  --btn-bg: #D9A6CD;
+  --btn-bg: #FFFF00;
   --btn-fg: #1D1714;
-  --btn-hover: #E8C2DF;
-  --tint: rgba(217,166,205,.12);
+  --btn-hover: #E6E600;
+  --tint: rgba(255,255,0,.10);
   --backdrop: rgba(0,0,0,.85);
   color-scheme: dark;
   }
@@ -212,12 +212,12 @@ dialog.viewer::backdrop { background: var(--backdrop); }
   --panel: #2A221E;
   --ink: #ECE5DC;
   --pencil: #B4AAA0;
-  --purpleheart: #D9A6CD;
+  --purpleheart: #FFFF00;   /* the yellow from the original fluteblanks.com */
   --rule: #4B3F38;
-  --btn-bg: #D9A6CD;
+  --btn-bg: #FFFF00;
   --btn-fg: #1D1714;
-  --btn-hover: #E8C2DF;
-  --tint: rgba(217,166,205,.12);
+  --btn-hover: #E6E600;
+  --tint: rgba(255,255,0,.10);
   --backdrop: rgba(0,0,0,.85);
   color-scheme: dark;
 }
