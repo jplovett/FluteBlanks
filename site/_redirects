@@ -1,0 +1,17 @@
+/index.htm / 301
+/Home.html / 301
+/contents.htm / 301
+/heading.htm / 301
+/options.htm / 301
+/footer.htm / 301
+/postinfo.html / 301
+/about_us.htm /about 301
+/flute_blanks.htm /blanks 301
+/blank_large.htm /blanks 301
+/mouthPiece_large.htm /blanks 301
+/wood_prices.htm /prices 301
+/totems.htm /totems 301
+/products/* /totems 301
+/shipping.htm /shipping 301
+/contact_us.htm /contact 301
+/guestbook/* /contact 301

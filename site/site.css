@@ -1,0 +1,183 @@
+/* Fluteblanks.com — shop-drawing look: planed-ash paper, walnut ink, purpleheart accent */
+@font-face{font-family:"Big Shoulders Display";src:url(/fonts/big-shoulders-display-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Big Shoulders Display";src:url(/fonts/big-shoulders-display-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url(/fonts/atkinson-hyperlegible-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url(/fonts/atkinson-hyperlegible-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url(/fonts/atkinson-hyperlegible-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+
+:root {
+  --paper: #F1F0EB;      /* planed ash */
+  --panel: #E4E5DF;      /* felt grey-green from the product photos */
+  --ink: #2B211C;        /* walnut heartwood */
+  --pencil: #625C55;     /* secondary text, dimension lines */
+  --purpleheart: #6B2D5C;/* links + the one accent */
+  --rule: #B9B8AF;
+  --measure: 70ch;
+  --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1.125rem/1.6 var(--body);
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--purpleheart); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--purpleheart); outline-offset: 3px; border-radius: 2px; }
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--paper); padding: .5rem 1rem; z-index: 10; }
+
+.wrap { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+
+/* ---------- header ---------- */
+.site-head { border-bottom: 1px solid var(--rule); }
+.site-head .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 2rem;
+  padding-block: 1rem;
+}
+.brand { display: flex; align-items: center; gap: .75rem; color: var(--ink); text-decoration: none; margin-right: auto; }
+.brand img { width: 44px; height: auto; }
+.brand-name { font: 700 2rem/1 var(--display); letter-spacing: .01em; }
+.brand-by { display: block; font: .85rem/1.2 var(--body); color: var(--pencil); letter-spacing: 0; margin-top: .2rem; }
+.head-call { font: 600 1.05rem/1 var(--body); color: var(--ink); text-decoration: none; white-space: nowrap; }
+.head-call:hover { color: var(--purpleheart); }
+
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+.site-nav { width: 100%; }
+.site-nav a {
+  display: inline-block; padding: .35rem 0; color: var(--ink); text-decoration: none;
+  font: 600 1.15rem/1 var(--display); letter-spacing: .02em;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { border-bottom-color: var(--rule); }
+.site-nav a[aria-current="page"] { border-bottom-color: var(--purpleheart); }
+
+/* ---------- type ---------- */
+main { padding-block: 2.5rem 4rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.02; margin: 0 0 .6em; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 6.5vw, 4.75rem); letter-spacing: -.005em; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-top: 2.2em; }
+h3 { font-size: 1.45rem; margin-top: 1.6em; }
+p, ul, ol, dl { max-width: var(--measure); margin: 0 0 1.1em; }
+.lede { font-size: 1.3rem; line-height: 1.5; }
+.quiet { color: var(--pencil); }
+ul.plain { padding-left: 1.2rem; }
+ul.plain li { margin-bottom: .3em; }
+ul.plain li::marker { color: var(--purpleheart); }
+
+/* ---------- the shop drawing (signature element) ---------- */
+.drawing {
+  margin: 2rem 0 3rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: var(--panel);
+  background-image:
+    linear-gradient(var(--paper) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: 1px solid var(--rule);
+}
+.drawing figure { margin: 0; }
+.drawing img { width: 100%; max-width: 640px; margin-inline: auto; border: 1px solid var(--rule); }
+.dims { list-style: none; padding: 0; margin: 1.5rem auto 0; max-width: 640px; display: grid; gap: 1.1rem; }
+.dim { position: relative; }
+.dim-line {
+  position: relative; height: 1px; background: var(--pencil); margin: 0 6px .55rem;
+}
+.dim-line::before, .dim-line::after {
+  content: ""; position: absolute; top: -6px; width: 1px; height: 13px; background: var(--pencil);
+}
+.dim-line::before { left: -6px; } .dim-line::after { right: -6px; }
+.dim-line span {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  background: var(--panel); padding: 0 .6rem; white-space: nowrap;
+  font: 700 1.35rem/1 var(--display); color: var(--ink);
+}
+.dim.short .dim-line { width: 62%; }   /* 15½ in drawn to scale against 24 in */
+.dim p { margin: 0; font-size: 1rem; color: var(--pencil); text-align: center; }
+.dim.short p { width: 62%; }
+.drawing figcaption { margin-top: 1rem; font-size: .95rem; color: var(--pencil); text-align: center; }
+
+/* ---------- call to order ---------- */
+.order {
+  display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: center; margin: 1.5rem 0 0;
+}
+.btn {
+  display: inline-block; padding: .75rem 1.25rem; border-radius: 4px;
+  background: var(--purpleheart); color: #fff; text-decoration: none; font-weight: 700;
+}
+.btn:hover { background: #55234A; }
+.btn.ghost { background: transparent; color: var(--purpleheart); border: 2px solid var(--purpleheart); padding: calc(.75rem - 2px) calc(1.25rem - 2px); }
+.btn.ghost:hover { background: rgba(107,45,92,.08); }
+
+/* ---------- two-up text + photo ---------- */
+.split { display: grid; gap: 2rem; align-items: start; }
+@media (min-width: 52rem) { .split { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
+.photo { margin: 0; }
+.photo img { border: 1px solid var(--rule); }
+.photo figcaption { font-size: .95rem; color: var(--pencil); margin-top: .5rem; }
+
+/* ---------- cut list (prices) ---------- */
+.cutlist { width: 100%; max-width: 44rem; border-collapse: collapse; margin: 0 0 1.25rem; font-variant-numeric: tabular-nums; }
+.cutlist caption { text-align: left; font: 700 1.45rem/1.1 var(--display); margin-bottom: .6rem; }
+.cutlist th, .cutlist td { padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.cutlist thead th { font-size: .95rem; color: var(--pencil); font-weight: 400; border-bottom: 2px solid var(--ink); }
+.cutlist td.num, .cutlist th.num { text-align: right; padding-right: 0; white-space: nowrap; }
+.cutlist tbody th { font-weight: 700; }
+
+.note {
+  max-width: var(--measure); border-left: 3px solid var(--purpleheart);
+  padding: .25rem 0 .25rem 1rem; margin: 1.5rem 0;
+}
+
+/* ---------- gallery ---------- */
+.gallery { list-style: none; padding: 0; margin: 1rem 0 2rem; display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr)); max-width: none; }
+.gallery button {
+  all: unset; cursor: zoom-in; display: block; width: 100%;
+  background: var(--panel); border: 1px solid var(--rule);
+}
+.gallery button:focus-visible { outline: 3px solid var(--purpleheart); outline-offset: 3px; }
+.gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.gallery .cap { display: flex; justify-content: space-between; gap: .5rem; padding: .5rem .75rem; font-size: .95rem; }
+.gallery .code { font: 700 1.2rem/1 var(--display); }
+.gallery .count { color: var(--pencil); }
+
+dialog.viewer {
+  border: 0; padding: 0; background: var(--paper); color: var(--ink);
+  width: min(100vw - 2rem, 900px); max-height: calc(100vh - 2rem);
+}
+dialog.viewer::backdrop { background: rgba(43,33,28,.82); }
+.viewer-inner { display: grid; grid-template-rows: auto 1fr auto; max-height: calc(100vh - 2rem); }
+.viewer-top { display: flex; justify-content: space-between; align-items: center; padding: .75rem 1rem; border-bottom: 1px solid var(--rule); }
+.viewer-title { font: 700 1.5rem/1 var(--display); margin: 0; }
+.viewer-stage { display: grid; place-items: center; background: var(--panel); min-height: 0; overflow: hidden; }
+.viewer-stage img { max-height: calc(100vh - 11rem); width: auto; object-fit: contain; }
+.viewer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .75rem 1rem; border-top: 1px solid var(--rule); }
+.viewer button { font: 600 1rem/1 var(--body); color: var(--ink); background: none; border: 1px solid var(--rule); border-radius: 4px; padding: .55rem .9rem; cursor: pointer; }
+.viewer button:hover { border-color: var(--ink); }
+.viewer button[disabled] { opacity: .35; cursor: default; }
+.viewer-count { color: var(--pencil); font-size: .95rem; }
+
+/* ---------- footer ---------- */
+.site-foot { border-top: 1px solid var(--rule); padding-block: 2rem 2.5rem; font-size: 1rem; }
+.site-foot .wrap { display: grid; gap: 1.5rem; }
+@media (min-width: 46rem) { .site-foot .wrap { grid-template-columns: 1fr auto; } }
+.site-foot address { font-style: normal; line-height: 1.7; }
+.site-foot strong { font: 700 1.3rem/1 var(--display); display: block; margin-bottom: .4rem; }
+.site-foot ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 2rem; }
+.site-foot li { margin-bottom: .3rem; }
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+@media print { .site-nav, .order, .skip { display: none; } }
+
+/* first heading inside a split column lines up with the photo */
+.split > div > :first-child { margin-top: 0; }
+.split + .quiet { margin-top: 2rem; }
+.cutlist td.num, .cutlist th.num { padding-left: 1.25rem; }
+.cutlist .quiet { font-weight: 400; }
