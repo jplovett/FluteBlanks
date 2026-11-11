@@ -30,7 +30,7 @@ def page(path, title, desc, body, extra_js=""):
 <meta property="og:title" content="{full_title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="https://fluteblanks.com/img/Fluteblank.jpg">
-<link rel="icon" href="/img/kokopelli-mark.png">
+<link rel="icon" href="/img/kokopelli-still.png">
 {FONTS}
 <link rel="stylesheet" href="/site.css">
 <script>try{{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
@@ -40,7 +40,10 @@ def page(path, title, desc, body, extra_js=""):
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="/">
-      <img src="/img/kokopelli-mark.png" alt="" width="44" height="48">
+      <picture>
+        <source srcset="/img/kokopelli-still.png" media="(prefers-reduced-motion: reduce)">
+        <img src="/img/kokopelli-dance.webp" alt="" width="120" height="130">
+      </picture>
       <span><span class="brand-name">Fluteblanks</span><span class="brand-by">by George Atkinson, Stone Mountain, GA</span></span>
     </a>
     <a class="head-call" href="{TEL}">Call {PHONE}</a>

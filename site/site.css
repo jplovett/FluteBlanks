@@ -47,8 +47,9 @@ a:hover { text-decoration-thickness: 2px; }
   display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 2rem;
   padding-block: 1rem;
 }
-.brand { display: flex; align-items: center; gap: .75rem; color: var(--ink); text-decoration: none; margin-right: auto; }
-.brand img { width: 44px; height: auto; }
+.brand { display: flex; align-items: center; gap: 1rem; color: var(--ink); text-decoration: none; margin-right: auto; }
+.brand img { width: 104px; height: auto; }
+@media (max-width: 30rem) { .brand img { width: 76px; } }
 .brand-name { font: 700 2rem/1 var(--display); letter-spacing: .01em; }
 .brand-by { display: block; font: .85rem/1.2 var(--body); color: var(--pencil); letter-spacing: 0; margin-top: .2rem; }
 .head-call { font: 600 1.05rem/1 var(--body); color: var(--ink); text-decoration: none; white-space: nowrap; }
